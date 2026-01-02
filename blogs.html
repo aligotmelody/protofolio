@@ -41,8 +41,8 @@
             
             <div class="blog-category-wrapper">
                 <div class="blog-category-container">
-                    <a href="#" class="category-link active">[ALL_POSTS]</a>
-                    <a href="#" class="category-link">[WEB PENTEST]</a>
+                    <a href="#" class="category-link active" data-filter="all">[ALL_POSTS]</a>
+                    <a href="#" class="category-link" data-filter="web-pentest">[WEB PENTEST]</a>
                     
                 </div>
             </div>
@@ -52,7 +52,7 @@
             </div>
 
             <div class="blog-grid">
-                <article class="project-card">
+                <article class="project-card" data-category="web-pentest">
                     <div class="project-img">IMAGE_NOT_FOUND.SH</div>
                     <div class="project-content">
                         <h3>> Session Fixation</h3>
@@ -60,6 +60,15 @@
                         <a href="blogs/web_pentesting/session_fixation.html" class="btn" style="margin-top: 10px; padding: 5px 15px;">Read_Post</a>
                     </div>
                 </article>
+            <article class="project-card" data-category="web-pentest">
+                    <div class="project-img">IMAGE_NOT_FOUND.SH</div>
+                    <div class="project-content">
+                        <h3>> Open Authorization</h3>
+                        <p style="color: var(--secondary-text);">building an OAuth server and breaking it down </p>
+                        <a href="blogs/web_pentesting/OAuth.html" class="btn" style="margin-top: 10px; padding: 5px 15px;">Read_Post</a>
+                    </div>
+                </article>
+            
                 </div>
             
             <div class="prompt">
@@ -83,5 +92,33 @@
             <p>ali@blogs:~$ <span class="cursor"></span></p>
         </div>
 </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const filters = document.querySelectorAll(".category-link");
+    const cards = document.querySelectorAll(".project-card");
+
+    filters.forEach(filter => {
+        filter.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            // update active state
+            filters.forEach(f => f.classList.remove("active"));
+            filter.classList.add("active");
+
+            const category = filter.dataset.filter;
+
+            cards.forEach(card => {
+                if (category === "all" || card.dataset.category === category) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        });
+    });
+});
+</script>
+
 </body>
 </html>
