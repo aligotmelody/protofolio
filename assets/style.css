@@ -156,6 +156,49 @@ nav ul li a:hover {
     animation: blink 1s infinite;
     margin-left: 5px;
 }
+/* Image Container for Blog Posts */
+.image-container {
+    margin: 1.5rem 0;
+    padding: 0.5rem;
+    border-radius: 4px;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    text-align: center;
+    overflow: hidden;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 2px;
+    display: block;
+    margin: 0 auto;
+}
+
+
+.image-container:hover {
+    border-color: #555;
+    transition: border-color 0.3s ease;
+}
+
+
+.image-container figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: #888;
+    font-family: 'Courier New', monospace;
+    padding: 0.25rem;
+}
+
+
+.image-container figure {
+    margin: 0;
+    padding: 0;
+}
+
+.image-container figure img {
+    margin-bottom: 0.5rem;
+}
 
 @keyframes blink {
     0%, 100% { opacity: 1; }
